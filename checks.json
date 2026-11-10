@@ -1,0 +1,26 @@
+[
+  {
+    "name": "complete snapshot",
+    "args": ["sqlite_wal_prefix.py", "examples/complete.wal"],
+    "exit": 0,
+    "report": {"status":"ok","end_reason":"complete","valid_frames":5,"commit_markers":2,"last_commit_ordinal":4}
+  },
+  {
+    "name": "empty snapshot",
+    "args": ["sqlite_wal_prefix.py", "examples/empty.wal"],
+    "exit": 0,
+    "report": {"status":"ok","end_reason":"empty","valid_frames":0,"commit_markers":0,"last_commit_ordinal":null}
+  },
+  {
+    "name": "checksum mismatch tail",
+    "args": ["sqlite_wal_prefix.py", "examples/checksum-tail.wal"],
+    "exit": 1,
+    "report": {"status":"rejected_tail","end_reason":"checksum_mismatch","valid_frames":2,"commit_markers":1,"last_commit_ordinal":2}
+  },
+  {
+    "name": "malformed header",
+    "args": ["sqlite_wal_prefix.py", "examples/invalid-header.wal"],
+    "exit": 2,
+    "report": {"status":"invalid"}
+  }
+]
